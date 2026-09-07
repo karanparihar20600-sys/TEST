@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0e0a16">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>For My Dearest Khushi 💕 | I'm Really Sorry!</title>
+  <meta name="description" content="A special apology website crafted with love for Khushi. Will you forgive me?">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Background Canvas for Floating Hearts & Sparkles -->
+  <canvas id="bgCanvas"></canvas>
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Audio Controls Top Bar -->
+  <div class="audio-control-pill">
+    <button id="bgmToggle" class="pill-btn" aria-label="Toggle Romantic BGM">
+      <i class="fa-solid fa-music"></i>
+      <span id="bgmText">Play Sweet Song 🎵</span>
+    </button>
+    <button id="soundFxToggle" class="pill-btn active" aria-label="Toggle Sound Effects">
+      <i class="fa-solid fa-volume-high"></i>
+    </button>
+    <button id="settingsToggle" class="pill-btn" aria-label="Settings">
+      <i class="fa-solid fa-gear"></i>
+    </button>
+  </div>
+
+  <main class="app-container">
+    <!-- Hero Section -->
+    <header class="hero-card glass-panel">
+      <div class="hero-badge">
+        <span class="heart-pulse">💖</span> Handcrafted With Code & Love By Your Husband Karan Only For Khushi 👑
+      </div>
+
+      <div class="hero-avatar-wrapper">
+        <div class="avatar-glow"></div>
+        <div class="avatar-box">
+          <img src="assets/karan_khushi_2.jpg" alt="Karan & Khushi" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+        </div>
+      </div>
+
+      <h1 class="hero-title">For My Dearest Khushi 💕<br><span class="hero-subheading">I'm Really, Really Sorry! <span class="crying-emoji">🥺</span></span></h1>
+      <p class="hero-subtitle">I coded this entire special website for you, line by line, just to see your beautiful smile again. Please forgive your silly husband Karan!</p>
+
+      <!-- Sad Live Timer -->
+      <div class="timer-box">
+        <div class="timer-label"><i class="fa-solid fa-clock"></i> Time spent missing your beautiful smile:</div>
+        <div class="timer-counter" id="timerCounter">00h : 00m : 00s</div>
+      </div>
+    </header>
+
+    <!-- Main Game Section: Dodging NO Button -->
+    <section class="game-section glass-panel">
+      <div class="section-tag">Interactive Quiz 💌</div>
+      <h2 class="game-heading">Khushi, Will You Please Forgive Me?</h2>
+      <p class="game-subtext">Choose your answer carefully... (Hint: Think about momos & warm hugs!)</p>
+
+      <div class="buttons-playground" id="playground">
+        <button id="yesBtn" class="btn btn-yes">
+          <i class="fa-solid fa-heart"></i> YES! I Forgive You 💕
+        </button>
+        <button id="noBtn" class="btn btn-no">
+          NO 😠 Still Angry
+        </button>
+        <div id="dodgeToast" class="dodge-toast hidden">Oye Khushi! You can't click NO! 🙈</div>
+      </div>
+    </section>
+
+    <!-- Love Meter Section -->
+    <section class="love-meter-section glass-panel">
+      <div class="section-tag">Forgiveness Gauge ⚡</div>
+      <h2>How Much Is Khushi Loving Me Right Now?</h2>
+      <p>Slide to update your mood meter!</p>
+
+      <div class="meter-wrapper">
+        <input type="range" id="loveSlider" min="0" max="1000" value="750" class="meter-slider">
+        <div class="meter-display">
+          <span id="meterPercent">750%</span>
+          <div id="meterBadge" class="meter-badge">Considering Momos & Forgiveness 🥟</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Flip Cards Section -->
+    <section class="cards-section">
+      <div class="section-header">
+        <div class="section-tag">Heartfelt Notes 💌</div>
+        <h2>Reasons Why I Love You & Why I'm Sorry</h2>
+        <p>Tap any card to flip & read my secret message!</p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon">👑</div>
+              <h3>100% Your Win</h3>
+              <p class="tap-hint">Tap to Flip ✨</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <h3>I Was Wrong 🥺</h3>
+              <p>"I am so sorry for my silliness. You were 100% right as always, my Queen! I promise to listen to you more carefully."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon">✨</div>
+              <h3>Your Smile</h3>
+              <p class="tap-hint">Tap to Flip ✨</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <h3>My Sunset & Sun ☀️</h3>
+              <p>"Without your laughter, our house feels like a silent movie. Your smile is my daily dose of energy!"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon">🤝</div>
+              <h3>The Contract</h3>
+              <p class="tap-hint">Tap to Flip ✨</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <h3>Husband's Oath 📜</h3>
+              <p>"I hereby promise zero silly arguments, unlimited foot massages, and endless snacks for the entire month!"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon">💖</div>
+              <h3>My Best Friend</h3>
+              <p class="tap-hint">Tap to Flip ✨</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <h3>My Universe 🌌</h3>
+              <p>"You are not just my wife, Khushi — you are my best friend, my soulmate, and my favorite human forever."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spin the Wheel of Forgiveness Section -->
+    <section class="wheel-section glass-panel">
+      <div class="section-header">
+        <div class="section-tag">Spin & Win 🎡</div>
+        <h2>Khushi's Wheel of Forgiveness & Treats</h2>
+        <p>Spin the wheel to claim your guaranteed apology treat!</p>
+      </div>
+
+      <div class="wheel-container">
+        <div class="wheel-pointer">🔻</div>
+        <div class="wheel-box" id="wheelBox">
+          <canvas id="wheelCanvas" width="300" height="300"></canvas>
+        </div>
+        <button id="spinBtn" class="btn btn-yes spin-btn">
+          <i class="fa-solid fa-arrows-rotate"></i> SPIN THE WHEEL 🎯
+        </button>
+      </div>
+    </section>
+
+    <!-- Love Compliment Jar Section -->
+    <section class="love-jar-section glass-panel">
+      <div class="section-header">
+        <div class="section-tag">Reasons Jar 🫙💕</div>
+        <h2>Why Khushi Is The Best Wife In The Universe</h2>
+        <p>Tap any floating heart in the jar to read a special compliment!</p>
+      </div>
+
+      <div class="love-jar-box" id="loveJarBox">
+        <div class="jar-lid"></div>
+        <div class="jar-glass">
+          <div class="jar-heart-bubble" data-reason="Reason #1: Your gorgeous smile lights up my darkest days! ✨">💖</div>
+          <div class="jar-heart-bubble" data-reason="Reason #2: You make the most delicious chai and food with love! ☕">💕</div>
+          <div class="jar-heart-bubble" data-reason="Reason #3: Even when you're angry, you are the cutest person alive! 🥺">🌸</div>
+          <div class="jar-heart-bubble" data-reason="Reason #4: Your laughter is my absolute favorite sound in the world! 🎵">💗</div>
+          <div class="jar-heart-bubble" data-reason="Reason #5: You are my best friend, my rock, and my soulmate forever! 👑">🌟</div>
+          <div class="jar-heart-bubble" data-reason="Reason #6: You have the kindest heart and purest soul! ❤️">💌</div>
+        </div>
+      </div>
+      <div id="jarReasonDisplay" class="jar-reason-display">Click any heart in the jar above! 👆</div>
+    </section>
+
+    <!-- Sealed Love Letter Section -->
+    <section class="letter-section glass-panel">
+      <div class="section-header">
+        <div class="section-tag">Secret Message ✉️</div>
+        <h2>My Sealed Apology Letter For Khushi</h2>
+        <p>Tap the wax seal to unseal & read my heart!</p>
+      </div>
+
+      <div class="envelope-wrapper" id="envelopeWrapper">
+        <div class="envelope" id="envelope">
+          <div class="wax-seal" id="waxSeal">❤️</div>
+          <div class="envelope-front">Tap Wax Seal to Open</div>
+        </div>
+        <div class="letter-paper hidden" id="letterPaper">
+          <div class="letter-header">Dearest Khushi 💕</div>
+          <p class="letter-body">
+            "I know I messed up and made you upset, so I coded this entire interactive website from scratch just for you! 
+            Every animation, sound effect, floating heart, and game was built late night by me to bring back your gorgeous smile. 
+            You are my sunshine, my happiness, and my entire world. I promise to listen more, love you harder, and bring you endless snacks & smiles every day!"
+          </p>
+          <div class="letter-footer">Handcrafted With All My Love,<br>Your Husband Karan 💖</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Memory Polaroid Gallery -->
+    <section class="gallery-section glass-panel">
+      <div class="section-header">
+        <div class="section-tag">Our Moments 📸</div>
+        <h2>Memory Frame Gallery</h2>
+        <p>Moments that remind me why you are so special, Khushi!</p>
+      </div>
+
+      <div class="polaroid-grid" id="polaroidGrid">
+        <div class="polaroid-card">
+          <div class="tape"></div>
+          <div class="polaroid-img-box">
+            <img src="assets/karan_khushi_1.jpg" alt="Karan & Khushi" id="img1">
+          </div>
+          <p class="polaroid-caption">"Looking at you is my favorite thing to do ❤️"</p>
+        </div>
+
+        <div class="polaroid-card alt-tilt">
+          <div class="tape"></div>
+          <div class="polaroid-img-box">
+            <img src="assets/karan_khushi_2.jpg" alt="Karan & Khushi" id="img2">
+          </div>
+          <p class="polaroid-caption">"Your smile is my daily dose of happiness 🥰"</p>
+        </div>
+
+        <div class="polaroid-card">
+          <div class="tape"></div>
+          <div class="polaroid-img-box">
+            <img src="assets/khushi_solo.jpg" alt="My Beautiful Khushi" id="img3">
+          </div>
+          <p class="polaroid-caption">"The most beautiful girl in the universe! 👑✨"</p>
+        </div>
+
+        <div class="polaroid-card alt-tilt">
+          <div class="tape"></div>
+          <div class="polaroid-img-box">
+            <img src="assets/karan_khushi_3.jpg" alt="Karan & Khushi Together" id="img4">
+          </div>
+          <p class="polaroid-caption">"Together is my absolute favorite place to be 💕"</p>
+        </div>
+
+        <div class="polaroid-card">
+          <div class="tape"></div>
+          <div class="polaroid-img-box">
+            <img src="assets/karan_khushi_wedding.jpg" alt="Special Memory" id="img5">
+          </div>
+          <p class="polaroid-caption">"Cherishing our special moments forever & ever! 💖"</p>
+        </div>
+      </div>
+
+      <div class="gallery-actions">
+        <button id="uploadCustomPhotoBtn" class="btn btn-secondary">
+          <i class="fa-solid fa-camera"></i> Add Our Real Photo
+        </button>
+        <input type="file" id="photoFileInput" accept="image/*" class="hidden">
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-panel">
+      <p><i class="fa-solid fa-code"></i> Handcrafted 100% Code & Endless Love By **Karan** Only For Khushi ❤️</p>
+      <p class="footer-sub">Forever yours, your loving husband Karan! 💕</p>
+    </footer>
+  </main>
+
+  <!-- Success / Victory Modal (When YES is clicked) -->
+  <div id="victoryModal" class="modal-overlay hidden">
+    <div class="modal-content glass-panel">
+      <div class="modal-heart-icon">💖🎉</div>
+      <h2>YAAAY! BEST WIFE EVER!</h2>
+      <p class="modal-message">Thank you so much Khushi for forgiving your Karan! I promise to make you smile every single day. I love you to the moon and back! 🌙✨</p>
+      
+      <div class="modal-gift-box">
+        <i class="fa-solid fa-gift"></i>
+        <span>Special Hug Unlocked! 🫂</span>
+      </div>
+
+      <button id="closeVictoryBtn" class="btn btn-yes">
+        <i class="fa-brands fa-whatsapp"></i> Send Karan A Warm Hug 🤗
+      </button>
+      <br><br>
+      <a id="emailHugBtn" href="mailto:kp8115767@gmail.com?subject=I%20Forgive%20You%20Karan!%20💖&body=Hey%20Karan!%20I%20officially%20forgive%20you!%20Sending%20you%20the%20biggest%20warm%20hug%20right%20now!%20🤗❤️" class="btn btn-secondary" style="font-size:0.85rem; padding:8px 16px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+        <i class="fa-solid fa-envelope"></i> Send Email Hug 📧
+      </a>
+    </div>
+  <!-- Wheel Prize Modal -->
+  <div id="wheelModal" class="modal-overlay hidden">
+    <div class="modal-content glass-panel">
+      <div class="modal-heart-icon">🎡🎁</div>
+      <h2>CONGRATULATIONS KHUSHI!</h2>
+      <p class="modal-message">You won: <strong id="wheelPrizeTitle" style="color:var(--accent-gold); font-size:1.3rem;"></strong>!</p>
+      
+      <button id="claimWheelPrizeBtn" class="btn btn-yes">
+        <i class="fa-brands fa-whatsapp"></i> Claim On WhatsApp ❤️
+      </button>
+      <br><br>
+      <button id="closeWheelBtn" class="btn btn-secondary" style="font-size:0.85rem; padding:6px 16px;">Close</button>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal-overlay hidden">
+    <div class="modal-content glass-panel settings-box">
+      <div class="settings-header">
+        <h3><i class="fa-solid fa-gear"></i> Personalize Settings</h3>
+        <button id="closeSettingsBtn" class="close-x">&times;</button>
+      </div>
+      <div class="form-group">
+        <label for="husbandPhoneInput">Your WhatsApp Number (For Coupons):</label>
+        <input type="tel" id="husbandPhoneInput" placeholder="e.g. 919876543210 (with country code)" class="input-field">
+      </div>
+      <div class="form-group">
+        <label for="wifeNameInput">Wife's Nickname / Name:</label>
+        <input type="text" id="wifeNameInput" value="Khushi" class="input-field">
+      </div>
+      <button id="saveSettingsBtn" class="btn btn-yes">Save Settings ✨</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
